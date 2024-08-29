@@ -12,7 +12,7 @@ const AppLayout = () => {
           <div className="h-[75px]">
             <Header />
           </div>
-          <div className="flex-1 mt-8">
+          <div className="flex-1 mt-5">
             <Outlet />
           </div>
         </RestaurantDataProvider>
