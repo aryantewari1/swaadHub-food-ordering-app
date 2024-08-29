@@ -11,7 +11,6 @@ const Header = function () {
   const { setFilteredList, listOfRestaurants } = useRestaurantDataContext();
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
 
   return (
     <nav className="flex justify-around items-center shadow-[0_2px_25px_2px_rgb(0,0,0,0.0.07)] font-['montserrat'] font-medium">
@@ -22,7 +21,7 @@ const Header = function () {
           alt="website-logo"
         />
         <Link to="/">
-          <p className="font-['poppins'] text-[20px] font-semibold">Foodech</p>
+          <p className="font-['poppins'] text-[20px] font-semibold">swaadHub</p>
         </Link>
       </div>
 

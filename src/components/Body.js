@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useRestaurantDataContext } from "../context/RestaurantDataContext";
+import { useSelector } from "react-redux";
 
 const Body = () => {
   const {
@@ -20,7 +21,8 @@ const Body = () => {
   const RestaurantCardWithVegLabel = withVegLabel(RestaurantCard);
   const online = useOnlineStatus();
   if (!online) return <h1>Not online</h1>;
-
+  const count = useSelector((store) => store.count.count);
+  console.log(count);
   return listOfRestaurants.length == 0 ? (
     <Shimmer />
   ) : (
