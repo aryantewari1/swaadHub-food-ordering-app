@@ -2,6 +2,7 @@ import { Provider } from "react-redux";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import appStore from "../store/appStore";
+import Footer from "./Footer";
 
 const AppLayout = () => {
   return (
