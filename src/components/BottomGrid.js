@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import { useRestaurantDataContext } from "../context/RestaurantDataContext";
 import RestaurantCard, { withVegLabel } from "./RestaurantCard";
 import { useState } from "react";
+import useBottomGridData from "../utils/useBottomGridData";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setFilteredList,
+  setInputValue,
+} from "../store/Slices/BottomGridSlice";
 
 const BottomGrid = () => {
-  const {
-    listOfRestaurants,
-    setFilteredList,
-    filteredList,
-    inputValue,
-    setInputValue,
-  } = useRestaurantDataContext();
-
+  const dispatch = useDispatch();
+  const { listOfRestaurants, filteredList } = useBottomGridData();
+  const inputValue = useSelector((store) => store?.bottomGrid?.inputValue);
   const [heading, setHeading] = useState(
     "Pick a restaurant of your choice in Kanpur"
   );
@@ -19,9 +19,7 @@ const BottomGrid = () => {
 
   return (
     <>
-      <h2 className="font-['montserrat'] text-[22px] font-extrabold">
-        {heading}
-      </h2>
+      <h2 className="font-['poppins'] text-xl font-extrabold">{heading}</h2>
       <div className="filters-container mt-4">
         <div className="search-bar-container">
           <input
@@ -30,7 +28,7 @@ const BottomGrid = () => {
             placeholder="Search for Restaurant"
             value={inputValue}
             onChange={(e) => {
-              setInputValue(e.target.value);
+              dispatch(setInputValue(e.target.value));
             }}
           />
           <button
@@ -39,7 +37,7 @@ const BottomGrid = () => {
               const filter = listOfRestaurants.filter((res) =>
                 res.info.name.toLowerCase().includes(inputValue.toLowerCase())
               );
-              setFilteredList(filter);
+              dispatch(setFilteredList(filter));
             }}
           >
             Search
@@ -52,7 +50,7 @@ const BottomGrid = () => {
               const filter = listOfRestaurants.filter(
                 (res) => res.info.avgRating > 4.0
               );
-              setFilteredList(filter);
+              dispatch(setFilteredList(filter));
             }}
           >
             {" "}

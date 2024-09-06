@@ -2,13 +2,11 @@ import { LOGO_URL } from "../utils/constant";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useRestaurantDataContext } from "../context/RestaurantDataContext";
 import { useSelector } from "react-redux";
 
 const Header = function () {
   const [loginBtnContent, setLoginBtnContent] = useState("Login");
   const online = useOnlineStatus();
-  const { setFilteredList, listOfRestaurants } = useRestaurantDataContext();
 
   const cartItems = useSelector((store) => store.cart.items);
 
