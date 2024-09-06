@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
       <div className="w-full mb-3 ">
         <img
           src={CDN_URL + cloudinaryImageId}
-          className="w-full h-[169px] object-cover rounded-[16px] shadow-inner "
+          className="w-full h-[169px] object-cover rounded-[16px] shadow-inner"
         />
       </div>
       <div className="ml-3">

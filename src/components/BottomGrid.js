@@ -19,7 +19,9 @@ const BottomGrid = () => {
 
   return (
     <>
-      <h2 className="font-['poppins'] text-xl font-extrabold">{heading}</h2>
+      <h2 className="font-['poppins'] text-[1.35rem] font-extrabold">
+        {heading}
+      </h2>
       <div className="filters-container mt-4">
         <div className="search-bar-container">
           <input

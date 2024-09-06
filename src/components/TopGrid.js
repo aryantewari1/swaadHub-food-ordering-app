@@ -10,7 +10,9 @@ const TopGrid = () => {
     <div className="w-full mb-12 overflow-hidden">
       <div className="flex justify-between mb-3 items-center">
         <div>
-          <p className="font-[poppins] text-xl font-extrabold">{title}</p>
+          <p className="font-[poppins] text-[1.35rem] font-extrabold">
+            {title}
+          </p>
         </div>
         <div className="flex justify-between w-16 mr-8">
           <button
