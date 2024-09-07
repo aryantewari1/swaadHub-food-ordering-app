@@ -1,13 +1,34 @@
 import useTopGridData from "../utils/useTopGridData";
 import TopGridElement from "./TopGridElement";
-
+import { useRef } from "react";
 const TopGrid = () => {
   const topGridData = useTopGridData();
+  const topGrid = useRef();
   if (topGridData.length == 0) return;
   const { title } = topGridData?.header;
   const gridElements = topGridData?.gridElements?.infoWithStyle?.info;
+
+  const shiftLeft = () => {
+    if (topGrid.current) {
+      console.log("Shifting Left");
+      topGrid.current.scrollBy({
+        left: -topGrid.current.clientWidth / 2,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const shiftRight = () => {
+    if (topGrid.current) {
+      console.log("Shifting Right");
+      topGrid.current.scrollBy({
+        left: topGrid.current.clientWidth / 2,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
-    <div className="w-full mb-12 overflow-hidden">
+    <div className="w-full mb-12">
       <div className="flex justify-between mb-3 items-center">
         <div>
           <p className="font-[poppins] text-[1.35rem] font-extrabold">
@@ -35,7 +56,10 @@ const TopGrid = () => {
           </button>
         </div>
       </div>
-      <div className="w-full flex mb-10">
+      <div
+        className="w-full flex mb-10 overflow-x-auto scrollbar-none"
+        ref={topGrid}
+      >
         {gridElements.map((item) => {
           return <TopGridElement data={item} key={item?.id} />;
         })}
