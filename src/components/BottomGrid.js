@@ -1,20 +1,25 @@
 import { Link } from "react-router-dom";
 import RestaurantCard, { withVegLabel } from "./RestaurantCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useBottomGridData from "../utils/useBottomGridData";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setFilteredList,
   setInputValue,
 } from "../store/Slices/BottomGridSlice";
+import { useSelector } from "react-redux";
 
-const BottomGrid = () => {
-  const dispatch = useDispatch();
-  const { listOfRestaurants, filteredList } = useBottomGridData();
-  const inputValue = useSelector((store) => store?.bottomGrid?.inputValue);
-  const [heading, setHeading] = useState(
-    "Pick a restaurant of your choice in Kanpur"
+const BottomGrid = ({ footer }) => {
+  const heading = useSelector(
+    (store) =>
+      store?.restaurantData?.restaurantData?.data?.cards[2]?.card?.card?.title
   );
+  console.log(heading);
+  const dispatch = useDispatch();
+
+  const { listOfRestaurants, filteredList, inputValue } =
+    useBottomGridData(footer);
+
   const RestaurantCardWithVegLabel = withVegLabel(RestaurantCard);
 
   return (

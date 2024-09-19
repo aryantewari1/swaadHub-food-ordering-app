@@ -25,7 +25,7 @@ const Header = function () {
 
       <div className="flex-[2] max-w-[900px]">
         <ul className="flex justify-evenly">
-          <li>Online status: {online ? "yes" : "no"}</li>
+          <li>Online status: {online ? "🟢" : "🔴"}</li>
           <li>
             <Link
               to="/"
@@ -41,9 +41,6 @@ const Header = function () {
           </li>
           <li>
             <Link to="/about">About us</Link>
-          </li>
-          <li>
-            <Link to="/grocery">Grocery</Link>
           </li>
           <li>
             <Link to="/order">Order</Link>

@@ -9,10 +9,10 @@ const BottomGrid = createSlice({
   },
   reducers: {
     setListOfRestaurants: (state, action) => {
-      state.listOfRestaurants = action.payload;
+      state.listOfRestaurants = [...state.listOfRestaurants, ...action.payload];
     },
     setFilteredList: (state, action) => {
-      state.filteredList = action.payload;
+      state.filteredList = [...state.filteredList, ...action.payload];
     },
     setInputValue: (state, action) => {
       state.inputValue = action.payload;

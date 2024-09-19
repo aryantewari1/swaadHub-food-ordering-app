@@ -35,7 +35,7 @@ const TopGrid = () => {
             {title}
           </p>
         </div>
-        <div className="flex justify-between w-16 mr-8">
+        <div className="flex justify-between w-16 mr-2">
           <button
             className="p-2 px-3 rounded-[100%] bg-slate-200 mr-2"
             onClick={() => {
